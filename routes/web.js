@@ -6,6 +6,7 @@ const order_cont= require('../app/http/controllers/customers/order_cont')
 const check_cont= require('../app/http/controllers/check_cont')
 const admin_order_cont= require('../app/http/controllers/admin/order_cont')
 const status_cont =require('../app/http/controllers/admin/status_cont')
+const pizza_layer_cont=require('../app/http/controllers/pizza_layer_cont')
 
 //middlewares
 const guest = require('../app/http/middleware/guest')
@@ -32,6 +33,7 @@ function initRoutes(app){
     app.get('/logout',guest, auth_cont().logout)
 
     app.get('/checkout',check_cont().index)
+    app.get('/custom',pizza_layer_cont().pizzaLayers)
 
 
 
