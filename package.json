@@ -8,7 +8,8 @@
   "scripts": {
     "serv": "node server.js",
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "install": ""
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -32,11 +33,12 @@
     "socket.io": "^4.0.2",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^10.16.7",
-    "tailwindcss": "^2.1.2"
-  },
-  "devDependencies": {
+    "tailwindcss": "^2.1.2",
     "axios": "^0.21.1",
     "laravel-mix": "^6.0.18",
     "postcss": "8.1"
+  },
+  "devDependencies": {
+
   }
 }
