@@ -3,10 +3,10 @@ const Schema = mongoose.Schema
 
 const menuSchema = new Schema({
     name: { type: String, required: true},
-    ImageData: { type: String, required: true},
+    image: { type: String, required: true},
     price: { type: Number, required: true},
-    SIZE: { type: String, required: true}
-
+    SIZE: { type: String, required: true},
+    tag: { type: String, required: true }
 })
 
 

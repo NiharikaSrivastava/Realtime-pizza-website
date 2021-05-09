@@ -5,6 +5,7 @@ function menu_cont(){
         async menu(req, res) {
                 const pizzas= await Menu.find()
                 return res.render('menu', { pizzas: pizzas })
+                
             
         }
     }

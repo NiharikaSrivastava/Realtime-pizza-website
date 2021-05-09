@@ -38,12 +38,14 @@
           <section>
           <div class="grid-container">
           <% pizzas.forEach(function(pizza){%>
+           <% console.log(pizza.image)%>
+            <%if(pizza.tag === "classic"){%>
               <div class="container page-wrapper">
                   <div class="page-inner">
                     <div class="row">
                       <div class="el-wrapper">
                         <div class="box-up">
-                          <img class="img" src="/img/pizza.png" alt="" height="200px">
+                          <img class="img" src="/img/pizza/<%= pizza.image%>" alt="" height="200px">
                           <div class="img-info">
                             <div class="info-inner">
                               <span class="p-name"><%= pizza.name %></span>
@@ -67,8 +69,87 @@
                     </div>
                   </div>
                   </div>
-        <% }) %>
+        <% }}) %>
             </div>     
             </section> 
+
+
+            <section>
+              <div class="grid-container">
+              <% pizzas.forEach(function(pizza){%>
+               <% console.log(pizza.image)%>
+                <%if(pizza.tag === "Deluex"){%>
+                  <div class="container page-wrapper">
+                      <div class="page-inner">
+                        <div class="row">
+                          <div class="el-wrapper">
+                            <div class="box-up">
+                              <img class="img" src="/img/pizza/<%= pizza.image%>" alt="" height="200px">
+                              <div class="img-info">
+                                <div class="info-inner">
+                                  <span class="p-name"><%= pizza.name %></span>
+                                  <span class="p-company">Veg</span>
+                                </div>
+                                <div class="a-size">Available sizes : <span class="size">S , M , L </span></div>
+                              </div>
+                            </div>
+                            <div class="box-down">
+                              <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                              </div>
+                              <span class="cart" data-pizza="<%= JSON.stringify(pizza) %>">
+                                <span class="price"><%= pizza.price %></span>
+                                <span class="add-to-cart">
+                                  <span class="txt">Add in cart</span>
+                                </span>
+                              </span>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+                      </div>
+            <% }}) %>
+                </div>     
+                </section> 
+
+
+
+                <section>
+                  <div class="grid-container">
+                  <% pizzas.forEach(function(pizza){%>
+                  <% console.log(pizza.image)%>
+                    <%if(pizza.tag === "supreme"){%>
+                      <div class="container page-wrapper">
+                          <div class="page-inner">
+                            <div class="row">
+                              <div class="el-wrapper">
+                                <div class="box-up">
+                                  <img class="img" src="/img/pizza/<%= pizza.image%>" alt="" height="200px">
+                                  <div class="img-info">
+                                    <div class="info-inner">
+                                      <span class="p-name"><%= pizza.name %></span>
+                                      <span class="p-company">Veg</span>
+                                    </div>
+                                    <div class="a-size">Available sizes : <span class="size">S , M , L </span></div>
+                                  </div>
+                                </div>
+                                <div class="box-down">
+                                  <div class="h-bg">
+                                    <div class="h-bg-inner"></div>
+                                  </div>
+                                  <span class="cart" data-pizza="<%= JSON.stringify(pizza) %>">
+                                    <span class="price"><%= pizza.price %></span>
+                                    <span class="add-to-cart">
+                                      <span class="txt">Add in cart</span>
+                                    </span>
+                                  </span>
+                                </div>
+                                </div>
+                            </div>
+                          </div>
+                          </div>
+                <% }}) %>
+                    </div>     
+                    </section> 
   </article>
 </html>

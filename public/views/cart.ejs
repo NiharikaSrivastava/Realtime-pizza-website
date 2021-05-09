@@ -44,7 +44,7 @@
     <h5 style="visibility: hidden; font-size: 0%">ORDER DETAILS</h5>    
     <% for(let pizza of Object.values(session.cart.items)) { %>
     <section class="myOrder">
-        <img class="orderIMG" src="/img/pizza.png">
+        <img class="orderIMG" src="/img/pizza/<%= pizza.item.image %>">
         <ul class="orderDescription">
             <li class="orderName"><h3><%= pizza.item.name %></h3></li>
             <li class="orderSize">Medium</li>
@@ -54,9 +54,6 @@
         </ul>    
         <p class="orderQuantity">
             <%= pizza.qty %>
-            <img src="/img/logo.png">
-            <br>
-            <img src="/img/logo.png">
         </p>
         <p class="orderPrice"> 
             ₹<%= pizza.item.price * pizza.qty%>
