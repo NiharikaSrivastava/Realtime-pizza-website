@@ -7,7 +7,6 @@
           <ul class="nav__menu">
             <li class='nav__submenu-item_img'><a href="/home">
               <img src="/img/logo.png"></a></li>
-
               <li class="cart_icon"><a href="/cart">
                   <span id="cart_count">
                     <%= session.cart ? session.cart.totalQty : '' %>
@@ -33,9 +32,15 @@
               <li class="nav__menu-item"><a>Home</a></li>
           </ul>
       </nav>
-
-
+      
+      <div class="divider"><span></span><span>Classic Pizzas</span><span></span></div>
           <section>
+
+            <aside class="createPizzaBanner">
+              <h5 style="display: none;">Create Pizza Banner</h5>
+              <a href="https://www.google.com"><img class="pizzaBanner" src="img/pizzaBannerFinal.png" alt="Create Your Own Pizza Banner"></a>
+              <center><a href="https://www.google.com"><img class="pizzaBannerResponsive" src="img/pizzaBannerResponsive.png" alt="Create Your Own Pizza Banner (Responsive)"></a></center>
+          </aside> 
           <div class="grid-container">
           <% pizzas.forEach(function(pizza){%>
            <% console.log(pizza.image)%>
@@ -73,7 +78,7 @@
             </div>     
             </section> 
 
-
+            <div class="divider"><span></span><span>Deulex Pizzas</span><span></span></div>
             <section>
               <div class="grid-container">
               <% pizzas.forEach(function(pizza){%>
@@ -112,7 +117,7 @@
                 </div>     
                 </section> 
 
-
+                <div class="divider"><span></span><span>Supreme</span><span></span></div>
 
                 <section>
                   <div class="grid-container">

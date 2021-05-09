@@ -2,3 +2,10 @@
     background: red;
     transition: smooth;
 }
+.bg{
+    background-color:rgb(255, 174, 0)
+}
+.card{
+    height:50%;
+    width:50%;
+}

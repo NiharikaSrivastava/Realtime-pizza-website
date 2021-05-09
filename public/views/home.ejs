@@ -85,7 +85,7 @@
                 You can even get the chance of Naming your own Pizza and it can also get Featured among our Bestsellers!
                 We pledge to offer you The Most Mind-blowing, Mouth-watering and Finest Quality Meal Experience at the Best Prices.  
                 What are You Waiting for? Hurry UP! Get your Slice of Paradise NOW! </p>
-            <a href="#">Order Now</a>
+            <a href="/menu">Order Now</a>
         </section>
         <nav>
             <h5 style="display: none">Contact Us - Social Media Links</h5>       
@@ -107,6 +107,13 @@
         <li><a href="#">Contact Us</a></li>
         </ul>
     </aside>
-    <script src="/js/homepage.js"></script>
+    <script>
+        const menuToggle = document.querySelector('.toggle');
+        const showcase = document.querySelector('.showcase');
+        menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        showcase.classList.toggle('active');
+    })
+    </script>
 </body>
 </html>
