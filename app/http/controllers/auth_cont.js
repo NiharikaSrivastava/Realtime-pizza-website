@@ -1,5 +1,5 @@
 const User = require('../../models/user');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const passport = require('passport')
 
 function auth_cont(){
@@ -62,7 +62,7 @@ function auth_cont(){
             })
 
             // Hash password 
-            const hashedPassword = await bcrypt.hash(password, 10)
+            const hashedPassword = bcrypt.hashSync(password, 10)
             // Create a user 
             const user = new User({
                 name,

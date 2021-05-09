@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Aaryannnn",
   "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "serv": "node server.js",
     "dev": "nodemon server.js",
@@ -12,7 +15,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
@@ -36,6 +39,5 @@
     "sweetalert": "^2.1.2",
     "sweetalert2": "^10.16.7",
     "tailwindcss": "^2.1.2"
-  },
-  "devDependencies": {}
+  }
 }
