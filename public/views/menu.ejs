@@ -1,0 +1,74 @@
+<html>
+<link( href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,300' rel='stylesheet' type='text/css' )  >
+<link href="/css/menu.css" rel="stylesheet" type="text/css">
+<script src="/js/app.js" type="module"></script>
+  <article class="flex-container">
+        <nav class="nav">
+          <ul class="nav__menu">
+            <li class='nav__submenu-item_img'><a href="/home">
+              <img src="/img/logo.png"></a></li>
+
+              <li class="cart_icon"><a href="/cart">
+                  <span id="cart_count">
+                    <%= session.cart ? session.cart.totalQty : '' %>
+                  </span>
+                  <img src="/img/cart-black.png"></a>
+              </li>
+              <li class="nav__menu-item"><a>Contact Us</a></li>
+              <li class="nav__menu-item"><a>Services</a>
+                  <ul class="nav__submenu">
+                      <li class="nav__submenu-item"> <a>Web Design</a></li>
+                      <li class="nav__submenu-item"> <a>Web Development</a></li>
+                      <li class="nav__submenu-item"> <a>Web Hosting</a></li>
+                  </ul>
+              </li>
+              <li class="nav__menu-item"><a>About</a>
+                  <ul class="nav__submenu">
+                      <li class="nav__submenu-item"> <a>Our Company</a></li>
+                      <li class="nav__submenu-item"> <a>Our Team</a></li>
+                      <li class="nav__submenu-item"> <a>Our Reach</a></li>
+                  </ul>
+              </li>
+              <li class="nav__menu-item"><a>Blog</a></li>
+              <li class="nav__menu-item"><a>Home</a></li>
+          </ul>
+      </nav>
+
+
+          <section>
+          <div class="grid-container">
+          <% pizzas.forEach(function(pizza){%>
+              <div class="container page-wrapper">
+                  <div class="page-inner">
+                    <div class="row">
+                      <div class="el-wrapper">
+                        <div class="box-up">
+                          <img class="img" src="/img/pizza.png" alt="" height="200px">
+                          <div class="img-info">
+                            <div class="info-inner">
+                              <span class="p-name"><%= pizza.name %></span>
+                              <span class="p-company">Veg</span>
+                            </div>
+                            <div class="a-size">Available sizes : <span class="size">S , M , L </span></div>
+                          </div>
+                        </div>
+                        <div class="box-down">
+                          <div class="h-bg">
+                            <div class="h-bg-inner"></div>
+                          </div>
+                          <span class="cart" data-pizza="<%= JSON.stringify(pizza) %>">
+                            <span class="price"><%= pizza.price %></span>
+                            <span class="add-to-cart">
+                              <span class="txt">Add in cart</span>
+                            </span>
+                          </span>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+                  </div>
+        <% }) %>
+            </div>     
+            </section> 
+  </article>
+</html>
