@@ -6,7 +6,7 @@
         <nav class="nav">
           <ul class="nav__menu">
             <li class='nav__submenu-item_img'><a href="/home">
-              <img src="/img/logo.png"></a></li>
+              <img src="/img/logo.png" style="height: 100px;"></a></li>
               <li class="cart_icon"><a href="/cart">
                   <span id="cart_count">
                     <%= session.cart ? session.cart.totalQty : '' %>
@@ -14,22 +14,12 @@
                   <img src="/img/cart-black.png"></a>
               </li>
               <li class="nav__menu-item"><a>Contact Us</a></li>
-              <li class="nav__menu-item"><a>Services</a>
-                  <ul class="nav__submenu">
-                      <li class="nav__submenu-item"> <a>Web Design</a></li>
-                      <li class="nav__submenu-item"> <a>Web Development</a></li>
-                      <li class="nav__submenu-item"> <a>Web Hosting</a></li>
-                  </ul>
+              <li class="nav__menu-item"><a>FAQ</a>
               </li>
-              <li class="nav__menu-item"><a>About</a>
-                  <ul class="nav__submenu">
-                      <li class="nav__submenu-item"> <a>Our Company</a></li>
-                      <li class="nav__submenu-item"> <a>Our Team</a></li>
-                      <li class="nav__submenu-item"> <a>Our Reach</a></li>
-                  </ul>
+              <li class="nav__menu-item"><a href="/custom">Customize</a>
               </li>
-              <li class="nav__menu-item"><a>Blog</a></li>
-              <li class="nav__menu-item"><a>Home</a></li>
+              <li class="nav__menu-item"><a href="/customer/Myorders" style="text-decoration: none; ">My Orders</a></li>
+              <li class="nav__menu-item"><a href="/">Home</a></li>
           </ul>
       </nav>
       

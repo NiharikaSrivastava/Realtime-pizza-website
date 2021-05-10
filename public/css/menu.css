@@ -415,10 +415,14 @@ h1 {
   line-height: inherit;
   cursor: pointer;
 }
+.nav .ul .li .a:visited{
+  text-decoration: none;
+}
 .nav__menu {
   line-height: 45px;
   font-weight: 700;
   text-transform: uppercase;
+  list-style-type: none;
 }
 .nav__menu-item {
   display: inline-block;

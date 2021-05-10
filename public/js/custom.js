@@ -1,3 +1,4 @@
+console.log("hiii")
 var mainArea = document.getElementById("mainArea");
 
 var width = mainArea.clientWidth;
@@ -7,49 +8,68 @@ const canvasArea = document.getElementById("customPizzaCanvas");
 canvasArea.width = width;
 canvasArea.height = height;
 const canvas_ctx = canvasArea.getContext("2d");
-
+console.log("hiii")
 width = height;
 height = height;
-Bwidth = height + height / 7;
-Bheight = height + height / 7;
+var Bwidth = height + height / 7;
+var Bheight = height + height / 7;
 
+var crustArray = new Array(
+  "/img/crust/new hand tossed.png",
+  "/img/crust/wheat thin crust.png",
+  "/img/crust/cheese burst crust.png",
+  "/img/crust/fresh pan pizza.png"
+);
 
-//   var crustArray = new Array(
-//   "image/crust/1.png",
-//   "image/crust/2.png",
-//   "image/crust/3.png",
-//   "image/crust/4.png"
-// );
+var crustPriceArray = new Array(99, 149, 199, 139);
 
-var crustArray = new Array();
+var crustNameArray = new Array(
+  "new hand tossed",
+  "wheat thin crust",
+  "cheese burst crust",
+  "fresh pan pizza"
+);
 
-Layers[3].items.forEach(element => {
-  crustArray.push(element.image)
-});
-console.log(Layers[3])
-//var souceArray = new Array("image/souce/1.png", "image/souce/2.png");
+var souceArray = new Array("img/sauce/Pizza Sauce.png");
+var soucePriceArray = [9];
+var souceNameArray = new Array("Pizza Sauce");
 
-var souceArray = new Array();
+var cheeseArray = new Array(
+  "img/cheese/Mozzarella Cheese.png",
+  "img/cheese/Cheddar Cheese.png"
+);
 
-Layers[0].items.forEach(element => {
-  souceArray.push(element.image)
-});
-//var souceArray = new Array();
-
-
-
-var cheeseArray = new Array("image/cheese/1.png", "image/cheese/2.png");
+var cheesePriceArray = new Array(24, 19);
+var cheeseNameArray = new Array("Mozzarella Cheese", "Cheddar Cheese");
 
 var toppingArray = new Array(
-  "image/topping/1.png",
-  "image/topping/2.png",
-  "image/topping/3.png",
-  "image/topping/4.png",
-  "image/topping/5.png",
-  "image/topping/6.png",
-  "image/topping/7.png",
-  "image/topping/8.png"
+  "img/topping/Crisp Capsicum.png",
+  "img/topping/Onion.png",
+  "img/topping/Fresh Tomato.png",
+  "img/topping/Corn.png",
+  "img/topping/Grilled Mushrooms.png",
+  "img/topping/Jalapeno.png",
+  "img/topping/Paneer.png",
+  "img/topping/Black Olive.png"
 );
+
+var toppingPriceArray = new Array(59, 59, 59, 59, 59, 59, 59, 59);
+var toppingNameArray = new Array(
+  "Crisp Capsicum",
+  "Onion",
+  "Fresh Tomato",
+  "Corn",
+  "Grilled Mushrooms",
+  "Jalapeno",
+  "Paneer",
+  "Black Olive"
+);
+
+const priceLabel = document.getElementById("priceLabel");
+var crustPrice = crustPriceArray[0];
+var soucePrice = soucePriceArray[0];
+var cheesePrice = cheesePriceArray[0];
+var toppingPrice = toppingPriceArray[0];
 
 var displayedToppingArray = new Array();
 var displayedToppingArrayBack = new Array();
@@ -125,7 +145,12 @@ addPizzaCrust();
 drawPizzaLayers();
 
 function addPizzaCrust() {
-  addelementToContainer(...crustArray, drawPizzaCrust);
+  addelementToContainer(
+    ...crustArray,
+    ...crustNameArray,
+    ...crustPriceArray,
+    drawPizzaCrust
+  );
   btnPrev.onclick = function () {};
   btnNext.onclick = function () {
     removeElementsfromContainer();
@@ -134,7 +159,12 @@ function addPizzaCrust() {
 }
 
 function addPizzaSouce() {
-  addelementToContainer(...souceArray, drawPizzaSouce);
+  addelementToContainer(
+    ...souceArray,
+    ...souceNameArray,
+    ...soucePriceArray,
+    drawPizzaSouce
+  );
   btnPrev.onclick = function () {
     removeElementsfromContainer();
     addPizzaCrust();
@@ -146,7 +176,12 @@ function addPizzaSouce() {
 }
 
 function addPizzaCheese() {
-  addelementToContainer(...cheeseArray, drawPizzaCheese);
+  addelementToContainer(
+    ...cheeseArray,
+    ...cheeseNameArray,
+    ...cheesePriceArray,
+    drawPizzaCheese
+  );
   btnPrev.onclick = function () {
     removeElementsfromContainer();
     addPizzaSouce();
@@ -158,7 +193,12 @@ function addPizzaCheese() {
 }
 
 function addPizzaTopping() {
-  addelementToContainer(...toppingArray, drawPizzaTopping);
+  addelementToContainer(
+    ...toppingArray,
+    ...toppingNameArray,
+    ...toppingPriceArray,
+    drawPizzaTopping
+  );
   btnPrev.onclick = function () {
     removeElementsfromContainer();
     addPizzaCheese();
@@ -169,26 +209,29 @@ function addPizzaTopping() {
   };
 }
 
-function addelementToContainer(...elementImageArray) {
+function addelementToContainer(...elementArray) {
   let container = document.getElementById("cpelement_ul");
-  for (i = 0; i < elementImageArray.length - 1; i++) {
+  const len = (elementArray.length - 1) / 3;
+  for (let i = 0; i < len; i++) {
     let list = document.createElement("li");
     list.classList.add("cpelement_li");
     let image = document.createElement("IMG");
     image.classList.add("content-img");
-    image.src = elementImageArray[i];
+    image.src = elementArray[i];
     image.onclick = function () {
-      elementImageArray[elementImageArray.length - 1](image);
+      elementArray[elementArray.length - 1](image, i);
     };
     list.appendChild(image);
     let itemDetail = document.createElement("h5");
     itemDetail.classList.add("content_price");
     itemDetail.classList.add("card-body");
-    itemName = document.createTextNode("Thin crust ");
-    priceTagsymbol = document.createTextNode(" ₹: ");
-    priceTagText = document.createTextNode((i + 1) * 5);
+    let itemName = document.createTextNode(elementArray[i + len]);
+    let priceTagSymbol = document.createTextNode("₹: ");
+    let priceTagText = document.createTextNode(elementArray[i + len * 2]);
+    const lineBreak = document.createElement("br");
     itemDetail.appendChild(itemName);
-    itemDetail.appendChild(priceTagsymbol);
+    itemDetail.appendChild(lineBreak);
+    itemDetail.appendChild(priceTagSymbol);
     itemDetail.appendChild(priceTagText);
     list.appendChild(itemDetail);
     container.appendChild(list);
@@ -230,37 +273,70 @@ function drawPizzaLayers() {
   }
 }
 
-function drawPizzaCrust(image) {
+function drawPizzaCrust(image, i) {
+  console.log(i);
   crustImage.src = image.src;
+  crustPrice = crustPriceArray[i];
+  updateTotalPrice();
 }
 
-function drawPizzaSouce(image) {
+function drawPizzaSouce(image, i) {
+  console.log(i);
   SouceImage.src = image.src;
   drawPizzaLayer(image);
+  soucePrice = soucePriceArray[i];
+  updateTotalPrice();
 }
 
-function drawPizzaCheese(image) {
+function drawPizzaCheese(image, i) {
+  console.log(i);
   cheeseImage.src = image.src;
   drawPizzaLayer(image);
+  cheesePrice = cheesePriceArray[i];
+  updateTotalPrice();
 }
 
-function drawPizzaTopping(image) {
-  for (let i = 0; i < displayedToppingArray.length; i++) {
-    if (displayedToppingArrayBack[i].src == image.src) {
-      // displayedToppingArray[i].src = toppingArray[i];
-      if (displayedToppingArray[i].src == image.src) {
-        displayedToppingArray[i].src = "image/topping/null.png";
-      } else {
-        displayedToppingArray[i].src = displayedToppingArrayBack[i].src;
-      }
-    }
+function drawPizzaTopping(image, i) {
+  console.log(i);
+  if (displayedToppingArray[i].src == image.src) {
+    displayedToppingArray[i].src = "img/topping/null.png";
+    toppingPrice -= toppingPriceArray[i];
+  } else {
+    displayedToppingArray[i].src = displayedToppingArrayBack[i].src;
+    toppingPrice += toppingPriceArray[i];
   }
+  updateTotalPrice();
 }
 
 function removeElementsfromContainer() {
   let container = document.getElementById("cpelement_ul");
   container.innerHTML = "";
 }
+
+function updateTotalPrice() {
+  var totalPrice = 0;
+
+  totalPrice += crustPrice;
+  totalPrice += soucePrice;
+  totalPrice += cheesePrice;
+  totalPrice += toppingPrice;
+
+  //   totalPrice = 5;
+
+  let priceLabel = document.getElementById("priceLabel");
+  let priceText = document.createTextNode(totalPrice);
+  console.log(crustPrice);
+  console.log(soucePrice);
+  console.log(cheesePrice);
+  console.log(toppingPrice);
+  console.log(totalPrice);
+  priceLabel.innerHTML = "Total price: ₹ ";
+  priceLabel.appendChild(priceText);
+}
+
+updateTotalPrice();
+
+addToCart();
 
 window.addEventListener("resize", function () {
   location.reload();

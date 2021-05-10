@@ -4,6 +4,7 @@
     <title>Easy Cheesy!</title>
     <link rel="stylesheet" href="/css/landing.css">
     <h5 style="display: none">Welcome To Easy Cheesy - Homepage</h5>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script type="application/ld+json">
     {
         "@context":"http://schema.org/",
@@ -65,14 +66,14 @@
     </script>           
 </head>
 <body>
-    <article class="showcase">
+    <article class="showcase" id="myShowcase">
         <h1 style="display: none">Homepage - Main Content</h1>
         <header>
-            <h2 style="display: none">Easy Cheesy Logo (gif)</h2>
-            <img class="logoIMG" src="/img/logoGIF.gif" alt="Easy Cheesy Logo (gif)">
-            <section class="toggle"><h4 style="display: none">Toggle Sidebar</h4></section>
+           <h2 style="display: none">Easy Cheesy Logo (gif)</h2>
+           <img class="logoIMG" src="img/logoGIF.gif" alt="Easy Cheesy Logo (gif)">
+           <section class="toggle"><h4 style="display: none">Toggle Sidebar</h4></section>
         </header>
-        <video src="/img/homepageFinal.mp4" muted autoplay></video>
+        <video src="img/homepageFinal.mp4" muted autoplay></video>
         <section class="aboutUs">
             <hgroup>
                 <h1 style="display: none">About Us</h1>  
@@ -99,21 +100,26 @@
     <aside class="menu"> 
         <h5 style="display: none">Homepage - Sidebar Content</h5>            
         <ul>
+        <li> <section class="toggle-active" id="myToggle"><h4 style="display: none">Toggle Sidebar</h4></section></li>
         <li><a href="/register">Sign Up</a></li>    
         <li><a href="/login">Sign In</a></li>
-        <li><a href="/cardExpand">Create Your Own Pizza</a></li>
-        <li><a href="#">Frequently Asked Questions</a></li>
-        <li><a href="#">Terms And Conditions</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="/cardEx">Create Your Own Pizza</a></li>
+        <li><a href="/faq">Frequently Asked Questions</a></li>
+        <li><a href="/term">Terms And Conditions</a></li>
+        <li><a href="/contact">Contact Us</a></li>
         </ul>
     </aside>
     <script>
-        const menuToggle = document.querySelector('.toggle');
-        const showcase = document.querySelector('.showcase');
-        menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        showcase.classList.toggle('active');
-    })
+
+        $(".toggle").click(function () {
+        $(".showcase").toggleClass("active");
+        });
+
+        $(".toggle-active").click(function () {
+        $(".showcase").toggleClass("active");
+        });
+
+
     </script>
 </body>
 </html>
